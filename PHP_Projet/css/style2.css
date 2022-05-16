@@ -1,0 +1,328 @@
+/* ---------------------- MENU DEROULANT RESPONSIVE ---------------- */
+
+body {
+    margin: 0x;
+    /* Réinitialisation marges extérieures */
+    padding: 0px;
+    /* Réinitialisation marges intérieures */
+}
+
+.menu-mobile
+/* Menu fixe sur la page d'accueil : header.php */
+
+{
+    background-image: url("../images/logo2.jpg");
+    /* Image de fond = logo refuge */
+    background-position: center;
+    /* Logo centré */
+    background-repeat: no-repeat;
+    /* Pas de répétition du logo */
+    /* Couleur de fond blanc */
+    width: auto;
+    /* Taille du menu à 95% */
+    height: 300px;
+    /* Taille du menu à 300 px */
+    display: flex;
+    /* Affichage en flexbox */
+    flex-direction: row;
+    /* Affichage en ligne */
+    flex-wrap: nowrap;
+    /* Pas de retour à la ligne du menu */
+    justify-content: space-around;
+    /* Affichage du menu avec des espaces entre les items et autour */
+    margin-top: 5px;
+    /* Marge extérieure au dessus de 5 px */
+}
+
+nav {
+    width: 100%;
+    /* Menu prend 100% de la taille de l'écran */
+    background-color: #11ffee00;
+    /* Couleur de fond noir */
+}
+
+nav>ul {
+    /* Liste à puces de la nav */
+    margin: 0px;
+    /* réinitialisation des marges extérieures */
+    padding: 0px;
+    /* réinitialisation des marges intérieures */
+}
+
+nav li {
+    list-style-type: none;
+    /* Enlever les puces de la liste à puces */
+}
+
+nav>ul>li {
+    float: left;
+    /* Flexbox en position à gauche */
+    position: relative;
+    /* Position relative de la flexbox du menu */
+}
+
+nav>ul::after {
+    /* CSS pour le menu déroulant */
+    content: "";
+    display: table;
+    /* Affichage en table */
+    clear: both;
+}
+
+.submenu {
+    display: none;
+    /* Enlever l'intitulé du sous-menu */
+}
+
+nav input[type=checkbox] {
+    /* Enlever l'intitulé de la checkbox */
+    display: none;
+}
+
+nav label {
+    /* Enlever l'intitulé du label */
+    display: none;
+}
+
+nav a {
+    display: inline-block;
+    /* Les liens sont en disposition block */
+    text-decoration: none;
+    /* Enlever le sous-lignage des liens */
+}
+
+nav>ul>li>a {
+    /* liens du menu */
+    padding: 20px 85px;
+    /* marge intérieure */
+    color: black;
+    /* couleur du texte */
+}
+
+nav li:hover .submenu {
+    /* passage de la souris sur le sous-menu */
+    display: inline-block;
+    /* affichage des blocs en ligne */
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    padding: 0px;
+    z-index: 1000;
+    /* le sous-menu passe au dessus des autres éléments de la page */
+}
+
+.submenu li a {
+    /* Liens du sous-menu */
+    padding: 15px 30px;
+    /* Marge intérieure */
+    /*font-size: 13px;*/
+    color: #222538;
+    /* couleur du texte */
+    background-color: white;
+    /* couleur de fond */
+    width: 270px;
+    /* largeur */
+}
+
+.submenu li {
+    /* liste du sous-menu */
+    border-bottom: 1px solid #CCC;
+}
+
+.menu-menu:hover {
+    /* Affichage d'une bordure sur le haut du menu au passage de la souris */
+    border-top: 2px solid black;
+}
+
+.menu-animaux:hover {
+    /* idem */
+    border-top: 2px solid #B750A2;
+}
+
+.menu-chats:hover {
+    /* idem */
+    border-top: 2px solid #B750A2;
+}
+
+.menu-chiens:hover {
+    /* idem  */
+    border-top: 2px solid #B750A2;
+}
+
+.menu-lapins:hover {
+    /* idem  */
+    border-top: 2px solid #B750A2;
+}
+
+.submenu li:hover a {
+    /* Sous-menu avec passage de la souris */
+    color: black;
+    /* couleur noire */
+    font-weight: bold;
+    /* Police en gras */
+}
+
+nav input[type=checkbox]:checked~ul {
+    /* si la checkbox est cochée */
+    display: block;
+    /* Affichage en bloc */
+}
+
+.menu-chats>a::after {
+    content: " ▼";
+    /* Affichage du logo sur menu */
+    font-size: 12px;
+    /* taille de la police */
+}
+
+.menu-chiens>a::after {
+    content: " ▼";
+    /* Affichage du logo sur menu */
+    font-size: 12px;
+    /* taille de la police */
+}
+
+.menu-lapins>a::after {
+    content: " ▼";
+    /* Affichage du logo sur menu */
+    font-size: 12px;
+    /* taille de la police */
+}
+
+
+/* --------------------------- INDEX.PHP ---------------------------- */
+
+h1 {
+    color: #008C8F;
+}
+
+p {
+    text-align: center;
+}
+
+
+/* --------------------------- FOOTER.PHP ---------------------------- */
+
+.footer {
+    text-align: center;
+}
+
+
+/* ----------------------- ANIMAUX.PHP ------------------------------*/
+
+h3 {
+    text-align: center;
+    color: #008C8F;
+}
+
+#animaux {
+    border: 5px solid white;
+    /* bordure en blanc pour être invisible */
+    width: 100%;
+    height: 100%;
+    padding: 2%;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#animal_seul {
+    margin: auto;
+}
+
+
+/* PARTIE RESPONSIVE DU MENU */
+
+@media screen and (max-width: 780px) {
+    .menu-mobile {
+        /* Affichage du menu */
+        display: block;
+        /* Affichage en bloc */
+        color: #FFF;
+        background-image: url("../photo/logo_menu_responsive.png");
+        /* Récupération de l'image logo avec "menu" incrustée dans l'image */
+        /*background-color: rgb(88, 41, 0);*/
+        text-align: center;
+        /* texte centré */
+        padding: 12px 0px;
+    }
+    nav ul {
+        display: none;
+    }
+    nav ul li,
+    nav ul li a {
+        width: 100%;
+        /* Les menus et les liens prennent 100% de l'écran */
+        text-align: center;
+        /* texte centré */
+    }
+    nav ul li a,
+    nav ul li:hover a {
+        padding: 10px 0px;
+        /* Passage de la souris avec marge intérieure */
+    }
+    nav li:hover .submenu {
+        display: block;
+        position: static;
+    }
+}
+
+
+/* RESPONSIVE DESIGN DU MENU HEADER.PHP ET INDEX.PHP */
+
+@media screen and (max-width:880px) {
+    .menu,
+    #conteneur {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+}
+
+
+/* CSS pour la page mentionslegales.php et protectionvieprivee.php */
+
+h1,
+h3 {
+    text-align: center;
+}
+
+.mentionslegales {
+    text-align: justify;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+/* CSS pour la page protectionvieprivee.php */
+
+
+/* CSS DU TABLEAU */
+
+td,
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+
+/* CSS pour la page plandusite.php */
+
+ul li {
+    text-align: center;
+}
+
+
+/*CSS FOOTER */
+
+.footercss {
+    text-align: center;
+}
+
+
+/* Dégager les points sur la liste à puce */
+
+li {
+    list-style: none;
+}
